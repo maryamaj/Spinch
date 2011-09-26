@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29B1430987200CE7900 /* UIKit.framework */; };
+		8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29D1430987200CE7900 /* Foundation.framework */; };
+		8ACBF2A01430987200CE7900 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29F1430987200CE7900 /* CoreGraphics.framework */; };
+		8ACBF2A61430987200CE7900 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8ACBF2A41430987200CE7900 /* InfoPlist.strings */; };
+		8ACBF2A81430987200CE7900 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBF2A71430987200CE7900 /* main.m */; };
+		8ACBF2AC1430987200CE7900 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBF2AB1430987200CE7900 /* AppDelegate.m */; };
+		8ACBF2AF1430987200CE7900 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBF2AE1430987200CE7900 /* ViewController.m */; };
+		8ACBF2B21430987200CE7900 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ACBF2B01430987200CE7900 /* ViewController_iPhone.xib */; };
+		8ACBF2B51430987200CE7900 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ACBF2B31430987200CE7900 /* ViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8ACBF2971430987200CE7900 /* Spinch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACBF29B1430987200CE7900 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8ACBF29D1430987200CE7900 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8ACBF29F1430987200CE7900 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8ACBF2A31430987200CE7900 /* Spinch-Info.plist */ = {isa = PBXFileReference; path = "Spinch-Info.plist"; sourceTree = "<group>"; };
+		8ACBF2A51430987200CE7900 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8ACBF2A71430987200CE7900 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8ACBF2A91430987200CE7900 /* Spinch-Prefix.pch */ = {isa = PBXFileReference; path = "Spinch-Prefix.pch"; sourceTree = "<group>"; };
+		8ACBF2AA1430987200CE7900 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		8ACBF2AB1430987200CE7900 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8ACBF2AD1430987200CE7900 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		8ACBF2AE1430987200CE7900 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8ACBF2B11430987200CE7900 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		8ACBF2B41430987200CE7900 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8ACBF2941430987200CE7900 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */,
+				8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */,
+				8ACBF2A01430987200CE7900 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8ACBF28C1430987200CE7900 = {
+			isa = PBXGroup;
+			children = (
+				8ACBF2A11430987200CE7900 /* Spinch */,
+				8ACBF29A1430987200CE7900 /* Frameworks */,
+				8ACBF2981430987200CE7900 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8ACBF2981430987200CE7900 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8ACBF2971430987200CE7900 /* Spinch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8ACBF29A1430987200CE7900 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ACBF29B1430987200CE7900 /* UIKit.framework */,
+				8ACBF29D1430987200CE7900 /* Foundation.framework */,
+				8ACBF29F1430987200CE7900 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8ACBF2A11430987200CE7900 /* Spinch */ = {
+			isa = PBXGroup;
+			children = (
+				8ACBF2AA1430987200CE7900 /* AppDelegate.h */,
+				8ACBF2AB1430987200CE7900 /* AppDelegate.m */,
+				8ACBF2AD1430987200CE7900 /* ViewController.h */,
+				8ACBF2AE1430987200CE7900 /* ViewController.m */,
+				8ACBF2B01430987200CE7900 /* ViewController_iPhone.xib */,
+				8ACBF2B31430987200CE7900 /* ViewController_iPad.xib */,
+				8ACBF2A21430987200CE7900 /* Supporting Files */,
+			);
+			path = Spinch;
+			sourceTree = "<group>";
+		};
+		8ACBF2A21430987200CE7900 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8ACBF2A31430987200CE7900 /* Spinch-Info.plist */,
+				8ACBF2A41430987200CE7900 /* InfoPlist.strings */,
+				8ACBF2A71430987200CE7900 /* main.m */,
+				8ACBF2A91430987200CE7900 /* Spinch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8ACBF2961430987200CE7900 /* Spinch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ACBF2B81430987200CE7900 /* Build configuration list for PBXNativeTarget "Spinch" */;
+			buildPhases = (
+				8ACBF2931430987200CE7900 /* Sources */,
+				8ACBF2941430987200CE7900 /* Frameworks */,
+				8ACBF2951430987200CE7900 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spinch;
+			productName = Spinch;
+			productReference = 8ACBF2971430987200CE7900 /* Spinch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8ACBF28E1430987200CE7900 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = ChalmersTH;
+			};
+			buildConfigurationList = 8ACBF2911430987200CE7900 /* Build configuration list for PBXProject "Spinch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8ACBF28C1430987200CE7900;
+			productRefGroup = 8ACBF2981430987200CE7900 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8ACBF2961430987200CE7900 /* Spinch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8ACBF2951430987200CE7900 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACBF2A61430987200CE7900 /* InfoPlist.strings in Resources */,
+				8ACBF2B21430987200CE7900 /* ViewController_iPhone.xib in Resources */,
+				8ACBF2B51430987200CE7900 /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8ACBF2931430987200CE7900 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACBF2A81430987200CE7900 /* main.m in Sources */,
+				8ACBF2AC1430987200CE7900 /* AppDelegate.m in Sources */,
+				8ACBF2AF1430987200CE7900 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8ACBF2A41430987200CE7900 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8ACBF2A51430987200CE7900 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8ACBF2B01430987200CE7900 /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8ACBF2B11430987200CE7900 /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		8ACBF2B31430987200CE7900 /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8ACBF2B41430987200CE7900 /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8ACBF2B61430987200CE7900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8ACBF2B71430987200CE7900 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8ACBF2B91430987200CE7900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
+				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8ACBF2BA1430987200CE7900 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
+				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8ACBF2911430987200CE7900 /* Build configuration list for PBXProject "Spinch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACBF2B61430987200CE7900 /* Debug */,
+				8ACBF2B71430987200CE7900 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ACBF2B81430987200CE7900 /* Build configuration list for PBXNativeTarget "Spinch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACBF2B91430987200CE7900 /* Debug */,
+				8ACBF2BA1430987200CE7900 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8ACBF28E1430987200CE7900 /* Project object */;
+}

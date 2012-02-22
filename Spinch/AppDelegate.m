@@ -8,17 +8,27 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "iPhoneViewController.h"
+#import "iPadViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize iPhoneViewController = _iPhoneViewController;
+@synthesize iPadViewController = _iPadViewController;
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        
+        [_iPhoneViewController release];
+    } else {
+       
+        [_iPadViewController release];
+    }
+
+    
     [super dealloc];
 }
 
@@ -27,11 +37,15 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
+        
+        self.iPhoneViewController = [[[iPhoneViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
+        self.window.rootViewController = self.iPhoneViewController;
     } else {
-        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
+        
+        self.iPadViewController = [[[iPadViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
+        self.window.rootViewController = self.iPadViewController;
     }
-    self.window.rootViewController = self.viewController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

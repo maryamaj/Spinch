@@ -24,6 +24,19 @@
     [_sharedServerController startService];
     
     _sharedServerController.delegate = self;
+    
+    //[_sharedSurfaceComController connectToHost:@"129.16.202.46" onPort:4568];
+    //_sharedSurfaceComController.delegate = self;
+    
+    
+    //[NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
+}
+
+-(void) newContacs:(NSDictionary *)contacDictionary{
+    
+    
+    
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

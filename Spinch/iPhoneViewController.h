@@ -10,8 +10,10 @@
 #import "ClientController.h"
 #import "ClientControllerProtocolDelegate.h"
 #import "SpinchConfig.h"
+#import "MSSCommunicationController.h"
+#import "MSSCContactDescriptor.h"
 
-@interface iPhoneViewController : UIViewController <UIGestureRecognizerDelegate, ClientControllerProtocolDelegate>
+@interface iPhoneViewController : UIViewController <UIGestureRecognizerDelegate, ClientControllerProtocolDelegate, MSSCommunicationProtocol>
 {
     IBOutlet UIImageView *imageView;
     UIRotationGestureRecognizer *rotationGestureRecognizer;
@@ -24,6 +26,9 @@
         
     ClientController *_sharedClientController;
     id<SpinchActionPassingProtocolDelegate> _delegate;
+    
+    MSSCommunicationController *_sharedSurfaceComController;
+    MSSCContactDescriptor *_device;
     
     IBOutlet UIButton *_connectButton;
 
@@ -38,5 +43,6 @@
     
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIButton *connectButton;
+@property (nonatomic, retain) MSSCContactDescriptor* device;
 
 @end

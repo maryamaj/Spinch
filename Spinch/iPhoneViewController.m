@@ -12,6 +12,7 @@
 
 @synthesize imageView;
 @synthesize connectButton = _connectButton;
+@synthesize device = _device;
 
 - (void)didReceiveMemoryWarning
 {
@@ -41,6 +42,34 @@
     lastScale = 0.0f;
     pinchTimes = 0;
     rotateTimes = 0;
+    
+    
+    [_sharedSurfaceComController connectToHost:@"129.16.202.46" onPort:4568];
+    _sharedSurfaceComController.delegate = self;
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
+}
+
+#pragma mark -
+#pragma mark MSSCommunicationController Protocol
+
+-(void) newContacs:(NSDictionary *)contacDictionary{
+    
+    
+    self.device = (MSSCContactDescriptor *)[contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x60]];
+    if (self.device) {
+        
+        MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0xC0]];
+        if(canvas){
+        
+        
+        
+        
+            
+        }
+    }
+    
 }
 
 - (void)viewDidUnload

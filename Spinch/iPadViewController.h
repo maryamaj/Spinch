@@ -12,7 +12,7 @@
 #import "SpinchConfig.h"
 //#import "MSSCommunicationController.h"
 
-@interface iPadViewController : UIViewController < SpinchActionPassingProtocolDelegate, MSSCommunicationProtocol >
+@interface iPadViewController : UIViewController < SpinchActionPassingProtocolDelegate >
 {
     IBOutlet UIImageView *drawImage;
     int mouseMoved;

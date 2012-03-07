@@ -10,12 +10,16 @@
 
 #import "iPhoneViewController.h"
 #import "iPadViewController.h"
+#import "SpinchDevice.h"
+#import "SpinchModel.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize iPhoneViewController = _iPhoneViewController;
 @synthesize iPadViewController = _iPadViewController;
+@synthesize device = _device;
+@synthesize sharedSurfaceComController = _sharedSurfaceComController;
 
 - (void)dealloc
 {
@@ -36,15 +40,32 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    [[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
+    
+    _sharedSurfaceComController = [MSSCommunicationController sharedController];
+    [_sharedSurfaceComController connectToHost:@"129.16.203.195" onPort:4568];
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
         self.iPhoneViewController = [[[iPhoneViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
         self.window.rootViewController = self.iPhoneViewController;
+        _sharedSurfaceComController.delegate = self.iPhoneViewController;
+        self.device = [SpinchDevice sharedDevice];
+        
     } else {
         
         self.iPadViewController = [[[iPadViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
         self.window.rootViewController = self.iPadViewController;
+        //_sharedSurfaceComController.delegate = self.iPadViewController;
+        self.device = [SpinchDevice sharedDevice];
     }
+    
+
+    
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
     
     [self.window makeKeyAndVisible];
     return YES;

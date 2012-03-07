@@ -12,7 +12,7 @@
 
 @synthesize imageView;
 @synthesize connectButton = _connectButton;
-@synthesize device = _device;
+@synthesize colorMixerController = _colorMixerController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,6 +26,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [SpinchModel sharedModel].isColorMixerDisplayed = NO;
+    [SpinchModel sharedModel].isToolControllerDisplayed = YES;
     
     rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
     pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
@@ -42,13 +45,6 @@
     lastScale = 0.0f;
     pinchTimes = 0;
     rotateTimes = 0;
-    
-    
-    [_sharedSurfaceComController connectToHost:@"129.16.202.46" onPort:4568];
-    _sharedSurfaceComController.delegate = self;
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
 }
 
 #pragma mark -
@@ -57,17 +53,46 @@
 -(void) newContacs:(NSDictionary *)contacDictionary{
     
     
-    self.device = (MSSCContactDescriptor *)[contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x60]];
-    if (self.device) {
+    SpinchDevice* device = [SpinchDevice sharedDevice]; 
+    device.contactDescriptor = (MSSCContactDescriptor *)[contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x06]];
+    if (device.contactDescriptor) {
         
-        MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0xC0]];
+        device.isOnTable = YES;
+        
+        MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x00]];
         if(canvas){
         
-        
-        
-        
+            float angle = [MSSCContactDescriptor orientationOfDescriptor:device.contactDescriptor relativeToDescriptor:canvas];
             
+            if( angle > 90.0f && angle  < 270.0f){
+                
+                if(![SpinchModel sharedModel].isColorMixerDisplayed){
+                
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    self.colorMixerController = [[ColorMixerViewController alloc] init];
+                    [SpinchModel sharedModel].isColorMixerDisplayed = YES;
+                    [SpinchModel sharedModel].isToolControllerDisplayed = NO;
+                    [self presentViewController:self.colorMixerController animated:YES completion:nil];
+                }
+            
+            }
+            
+            
+            if( angle < 90.0f || angle > 270.f ){
+                
+                if(![SpinchModel sharedModel].isToolControllerDisplayed){
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [SpinchModel sharedModel].isColorMixerDisplayed = NO;
+                    self.colorMixerController = nil;
+                    [SpinchModel sharedModel].isToolControllerDisplayed = YES;
+                }
+            }
         }
+    }
+    else{
+    
+        device.isOnTable = NO;
+    
     }
     
 }
@@ -113,6 +138,7 @@
 
     [rotationGestureRecognizer release];
     [pinchGestureRecognizer release];
+    self.colorMixerController = nil;
 
 }
 

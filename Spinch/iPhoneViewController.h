@@ -10,8 +10,11 @@
 #import "ClientController.h"
 #import "ClientControllerProtocolDelegate.h"
 #import "SpinchConfig.h"
-#import "MSSCommunicationController.h"
 #import "MSSCContactDescriptor.h"
+#import "MSSCommunicationController.h"
+#import "ColorMixerViewController.h"
+#import "SpinchDevice.h"
+#import "SpinchModel.h"
 
 @interface iPhoneViewController : UIViewController <UIGestureRecognizerDelegate, ClientControllerProtocolDelegate, MSSCommunicationProtocol>
 {
@@ -27,8 +30,7 @@
     ClientController *_sharedClientController;
     id<SpinchActionPassingProtocolDelegate> _delegate;
     
-    MSSCommunicationController *_sharedSurfaceComController;
-    MSSCContactDescriptor *_device;
+    ColorMixerViewController* _colorMixerController;
     
     IBOutlet UIButton *_connectButton;
 
@@ -43,6 +45,6 @@
     
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIButton *connectButton;
-@property (nonatomic, retain) MSSCContactDescriptor* device;
+@property (nonatomic, retain) ColorMixerViewController* colorMixerController;
 
 @end

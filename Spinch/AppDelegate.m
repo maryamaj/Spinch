@@ -44,7 +44,7 @@
     [[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
     
     _sharedSurfaceComController = [MSSCommunicationController sharedController];
-    [_sharedSurfaceComController connectToHost:@"129.16.203.195" onPort:4568];
+    [_sharedSurfaceComController connectToHost:@"129.16.213.195" onPort:4568];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
@@ -65,7 +65,7 @@
     
     
     
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(getContacsFromCodeine) userInfo:nil repeats:YES]; 
     
     [self.window makeKeyAndVisible];
     return YES;

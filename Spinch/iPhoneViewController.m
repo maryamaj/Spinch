@@ -54,13 +54,18 @@
     
     
     SpinchDevice* device = [SpinchDevice sharedDevice]; 
+    device.ipAddress = [MSSCommunicationController deviceIp];
     device.contactDescriptor = (MSSCContactDescriptor *)[contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x06]];
     if (device.contactDescriptor) {
         
         device.isOnTable = YES;
         
         MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x00]];
+        
         if(canvas){
+                    
+            ((SpinchDevice *)[SpinchDevice sharedDevice]).canvasDescriptor = canvas;
+            [[MSSCommunicationController sharedController] setDeviceToCodeine:[DeviceInformation deviceInfoWithCDByteValue:device.contactDescriptor.byteValue andIp:device.ipAddress]];
         
             float angle = [MSSCContactDescriptor orientationOfDescriptor:device.contactDescriptor relativeToDescriptor:canvas];
             

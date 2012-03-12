@@ -57,7 +57,7 @@
     if([keyPath isEqualToString:@"contactDescriptor"]){
         
         MSSCContactDescriptor* desc = [change objectForKey:NSKeyValueChangeNewKey];
-        if(desc !=(MSSCContactDescriptor *)[NSNull null]){
+        if(desc != nil){
         
             self.colorSaturation = 1.0f - desc.orientation/360.0f;
         }else{

@@ -7,27 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpinchActionPassingProtocolDelegate.h"
-#import "ServerController.h"
 #import "SpinchConfig.h"
-//#import "MSSCommunicationController.h"
+#import "MSSCommunicationController.h"
+#import "SpinchModel.h"
 
-@interface iPadViewController : UIViewController < SpinchActionPassingProtocolDelegate >
+@interface iPadViewController : UIViewController <MSSCommunicationProtocol>
 {
     IBOutlet UIImageView *drawImage;
+    
     int mouseMoved;
     BOOL mouseSwiped;
+    
     CGPoint lastPoint;
     
-    CGFloat lineWidth;
-    CGFloat alphaValue;
-    
-    CGFloat lastScaleValue;
-
-    
-    ServerController *_sharedServerController;
-    //MSSCommunicationController *_sharedSurfaceComController;
-    id<SpinchActionPassingProtocolDelegate> _delegate;
+    SpinchModel* model;
     
 }
 

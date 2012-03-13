@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MSSCContactDescriptor.h"
+#import "DeviceInformation.h"
 
 @interface SpinchDevice : NSObject
 {
@@ -15,11 +16,13 @@
     MSSCContactDescriptor* _contactDescriptor;
     NSString* _ipAddress;
     MSSCContactDescriptor* _canvasDescriptor;
+    DeviceInformation* _canvasDevice;
 }
 
 @property (nonatomic, assign) BOOL isOnTable;
 @property (nonatomic, retain) MSSCContactDescriptor* contactDescriptor;
 @property (nonatomic, retain) MSSCContactDescriptor* canvasDescriptor;
+@property (nonatomic, copy) DeviceInformation* canvasDevice;
 @property (nonatomic, retain) NSString* ipAddress;
 
 + (id) sharedDevice;

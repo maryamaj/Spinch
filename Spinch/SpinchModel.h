@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "MSSCContactDescriptor.h"
+#import "InterDeviceComController.h"
+#import "SpinchDevice.h"
 
-@interface SpinchModel : NSObject
+@interface SpinchModel : NSObject <InterDeviceComProtocol, NSCoding>
 
 @property (nonatomic, assign) float toolWith;
 @property (nonatomic, assign) float toolAlpha;
@@ -20,5 +22,6 @@
 @property (nonatomic, assign) BOOL isToolControllerDisplayed;
 
 +(SpinchModel *) sharedModel;
+-(void) transmitToCanvasDevice;
 
 @end

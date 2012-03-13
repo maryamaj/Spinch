@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A19B6A61431E51B00B1210F /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6A51431E51B00B1210F /* AsyncSocket.m */; };
-		8A19B6B31431E55400B1210F /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6A91431E55400B1210F /* ServerController.m */; };
-		8A19B6B41431E55400B1210F /* TBMessageBroker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6AB1431E55400B1210F /* TBMessageBroker.m */; };
-		8A19B6B51431E55400B1210F /* SpinchMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6AF1431E55400B1210F /* SpinchMessage.m */; };
-		8A19B6B61431E55400B1210F /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6B21431E55400B1210F /* ClientController.m */; };
 		8A19B6BC1431E86200B1210F /* iPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6BB1431E86200B1210F /* iPadViewController.m */; };
 		8A19B6C31431EAAC00B1210F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A19B6C21431EAAC00B1210F /* CFNetwork.framework */; };
 		8A54050F150658EF00C0D32D /* ColorTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A54050E150658EF00C0D32D /* ColorTileView.m */; };
 		8A8D5B2F150503550073D864 /* ColorMixerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D5B2D150503550073D864 /* ColorMixerViewController.m */; };
 		8A8D5B30150503550073D864 /* ColorMixerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D5B2E150503550073D864 /* ColorMixerViewController.xib */; };
+		8A920706150F973200325798 /* libInterDeviceCom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9206F1150F5C3800325798 /* libInterDeviceCom.a */; };
+		8A920707150F974A00325798 /* libMSSCommunicationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFE0884150806160020D6B5 /* libMSSCommunicationController.a */; };
 		8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29B1430987200CE7900 /* UIKit.framework */; };
 		8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29D1430987200CE7900 /* Foundation.framework */; };
 		8ACBF2A01430987200CE7900 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29F1430987200CE7900 /* CoreGraphics.framework */; };
@@ -29,10 +26,30 @@
 		8ACBF2C214309ED200CE7900 /* Smiley1001.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACBF2C114309ED200CE7900 /* Smiley1001.png */; };
 		8AF9D70F1507A7D9006D0ECA /* SpinchDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9D70E1507A7D9006D0ECA /* SpinchDevice.m */; };
 		8AF9D7121507BCE4006D0ECA /* SpinchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9D7111507BCE4006D0ECA /* SpinchModel.m */; };
-		8AF9D714150805FC006D0ECA /* libMSSCommunicationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF9D713150805FC006D0ECA /* libMSSCommunicationController.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8A9206F0150F5C3800325798 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8AB2DDA9150E5D75007129DC;
+			remoteInfo = InterDeviceCom;
+		};
+		8A920708150F975B00325798 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A2593E914F6811800A3D43A;
+			remoteInfo = MSSCommunicationController;
+		};
+		8A92070A150F976400325798 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AB2DDA8150E5D75007129DC;
+			remoteInfo = InterDeviceCom;
+		};
 		8AFE0881150806160020D6B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */;
@@ -47,29 +64,9 @@
 			remoteGlobalIDString = 8A2593EA14F6811800A3D43A;
 			remoteInfo = MSSCommunicationController;
 		};
-		8AFE08861508061F0020D6B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8A2593E914F6811800A3D43A;
-			remoteInfo = MSSCommunicationController;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A19B6A41431E51B00B1210F /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		8A19B6A51431E51B00B1210F /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		8A19B6A81431E55400B1210F /* ServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerController.h; sourceTree = "<group>"; };
-		8A19B6A91431E55400B1210F /* ServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerController.m; sourceTree = "<group>"; };
-		8A19B6AA1431E55400B1210F /* TBMessageBroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMessageBroker.h; sourceTree = "<group>"; };
-		8A19B6AB1431E55400B1210F /* TBMessageBroker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMessageBroker.m; sourceTree = "<group>"; };
-		8A19B6AC1431E55400B1210F /* TBMessageBrokerProtocolDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMessageBrokerProtocolDelegate.h; sourceTree = "<group>"; };
-		8A19B6AD1431E55400B1210F /* SpinchActionPassingProtocolDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinchActionPassingProtocolDelegate.h; sourceTree = "<group>"; };
-		8A19B6AE1431E55400B1210F /* SpinchMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinchMessage.h; sourceTree = "<group>"; };
-		8A19B6AF1431E55400B1210F /* SpinchMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinchMessage.m; sourceTree = "<group>"; };
-		8A19B6B01431E55400B1210F /* ClientControllerProtocolDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientControllerProtocolDelegate.h; sourceTree = "<group>"; };
-		8A19B6B11431E55400B1210F /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
-		8A19B6B21431E55400B1210F /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		8A19B6BA1431E86200B1210F /* iPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadViewController.h; sourceTree = "<group>"; };
 		8A19B6BB1431E86200B1210F /* iPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadViewController.m; sourceTree = "<group>"; };
 		8A19B6C21431EAAC00B1210F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -80,6 +77,7 @@
 		8A8D5B2D150503550073D864 /* ColorMixerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorMixerViewController.m; sourceTree = "<group>"; };
 		8A8D5B2E150503550073D864 /* ColorMixerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorMixerViewController.xib; sourceTree = "<group>"; };
 		8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pieMenu.xcodeproj; path = ../../pieMenu/pieMenu.xcodeproj; sourceTree = "<group>"; };
+		8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InterDeviceCom.xcodeproj; path = ../../InterDeviceCom/InterDeviceCom.xcodeproj; sourceTree = "<group>"; };
 		8ACBF2971430987200CE7900 /* Spinch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACBF29B1430987200CE7900 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8ACBF29D1430987200CE7900 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,7 +97,6 @@
 		8AF9D70E1507A7D9006D0ECA /* SpinchDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinchDevice.m; sourceTree = "<group>"; };
 		8AF9D7101507BCE4006D0ECA /* SpinchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinchModel.h; sourceTree = "<group>"; };
 		8AF9D7111507BCE4006D0ECA /* SpinchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinchModel.m; sourceTree = "<group>"; };
-		8AF9D713150805FC006D0ECA /* libMSSCommunicationController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMSSCommunicationController.a; path = "../../../Library/Developer/Xcode/DerivedData/Spinch-aenuylwhzuozoicdaumsfplsrxlm/Build/Products/Debug-iphoneos/libMSSCommunicationController.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF9D714150805FC006D0ECA /* libMSSCommunicationController.a in Frameworks */,
+				8A920707150F974A00325798 /* libMSSCommunicationController.a in Frameworks */,
+				8A920706150F973200325798 /* libInterDeviceCom.a in Frameworks */,
 				8A19B6C31431EAAC00B1210F /* CFNetwork.framework in Frameworks */,
 				8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */,
 				8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */,
@@ -118,10 +116,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A9206E9150F5C3800325798 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A9206F1150F5C3800325798 /* libInterDeviceCom.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8ACBF28C1430987200CE7900 = {
 			isa = PBXGroup;
 			children = (
-				8AF9D713150805FC006D0ECA /* libMSSCommunicationController.a */,
 				8ACBF2A11430987200CE7900 /* Spinch */,
 				8ACBF29A1430987200CE7900 /* Frameworks */,
 				8ACBF2981430987200CE7900 /* Products */,
@@ -150,6 +155,7 @@
 		8ACBF2A11430987200CE7900 /* Spinch */ = {
 			isa = PBXGroup;
 			children = (
+				8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */,
 				8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */,
 				8ACBF2BF14309EB200CE7900 /* Assets */,
 				8A19B6C8143201B200B1210F /* SpinchConfig.h */,
@@ -163,19 +169,6 @@
 				8A8D5B2D150503550073D864 /* ColorMixerViewController.m */,
 				8A54050D150658EF00C0D32D /* ColorTileView.h */,
 				8A54050E150658EF00C0D32D /* ColorTileView.m */,
-				8A19B6A41431E51B00B1210F /* AsyncSocket.h */,
-				8A19B6A51431E51B00B1210F /* AsyncSocket.m */,
-				8A19B6A81431E55400B1210F /* ServerController.h */,
-				8A19B6A91431E55400B1210F /* ServerController.m */,
-				8A19B6AA1431E55400B1210F /* TBMessageBroker.h */,
-				8A19B6AB1431E55400B1210F /* TBMessageBroker.m */,
-				8A19B6AC1431E55400B1210F /* TBMessageBrokerProtocolDelegate.h */,
-				8A19B6AD1431E55400B1210F /* SpinchActionPassingProtocolDelegate.h */,
-				8A19B6AE1431E55400B1210F /* SpinchMessage.h */,
-				8A19B6AF1431E55400B1210F /* SpinchMessage.m */,
-				8A19B6B01431E55400B1210F /* ClientControllerProtocolDelegate.h */,
-				8A19B6B11431E55400B1210F /* ClientController.h */,
-				8A19B6B21431E55400B1210F /* ClientController.m */,
 				8AF9D70D1507A7D9006D0ECA /* SpinchDevice.h */,
 				8AF9D70E1507A7D9006D0ECA /* SpinchDevice.m */,
 				8AF9D7101507BCE4006D0ECA /* SpinchModel.h */,
@@ -230,7 +223,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				8AFE08871508061F0020D6B5 /* PBXTargetDependency */,
+				8A92070B150F976400325798 /* PBXTargetDependency */,
+				8A920709150F975B00325798 /* PBXTargetDependency */,
 			);
 			name = Spinch;
 			productName = Spinch;
@@ -258,6 +252,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8A9206E9150F5C3800325798 /* Products */;
+					ProjectRef = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
+				},
+				{
 					ProductGroup = 8AFE087D150806160020D6B5 /* Products */;
 					ProjectRef = 8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */;
 				},
@@ -270,6 +268,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8A9206F1150F5C3800325798 /* libInterDeviceCom.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libInterDeviceCom.a;
+			remoteRef = 8A9206F0150F5C3800325798 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8AFE0882150806160020D6B5 /* pieMenu.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -309,11 +314,6 @@
 				8ACBF2A81430987200CE7900 /* main.m in Sources */,
 				8ACBF2AC1430987200CE7900 /* AppDelegate.m in Sources */,
 				8ACBF2AF1430987200CE7900 /* iPhoneViewController.m in Sources */,
-				8A19B6A61431E51B00B1210F /* AsyncSocket.m in Sources */,
-				8A19B6B31431E55400B1210F /* ServerController.m in Sources */,
-				8A19B6B41431E55400B1210F /* TBMessageBroker.m in Sources */,
-				8A19B6B51431E55400B1210F /* SpinchMessage.m in Sources */,
-				8A19B6B61431E55400B1210F /* ClientController.m in Sources */,
 				8A19B6BC1431E86200B1210F /* iPadViewController.m in Sources */,
 				8A8D5B2F150503550073D864 /* ColorMixerViewController.m in Sources */,
 				8A54050F150658EF00C0D32D /* ColorTileView.m in Sources */,
@@ -325,10 +325,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8AFE08871508061F0020D6B5 /* PBXTargetDependency */ = {
+		8A920709150F975B00325798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MSSCommunicationController;
-			targetProxy = 8AFE08861508061F0020D6B5 /* PBXContainerItemProxy */;
+			targetProxy = 8A920708150F975B00325798 /* PBXContainerItemProxy */;
+		};
+		8A92070B150F976400325798 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = InterDeviceCom;
+			targetProxy = 8A92070A150F976400325798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -413,15 +418,14 @@
 				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"/Users/blender/Documents/iPhone Dev/pieMenu/MSSCommunicationController\"",
+					"\"/Users/blender/Documents/iPhone Dev/InterDeviceCom/InterDeviceCom\"",
 				);
 				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Spinch/libMSSCommunicationController\"",
-					"\"$(SRCROOT)/Spinch/libMSSCommunication\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Spinch-aenuylwhzuozoicdaumsfplsrxlm/Build/Products/Debug-iphoneos\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -435,15 +439,14 @@
 				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"/Users/blender/Documents/iPhone Dev/pieMenu/MSSCommunicationController\"",
+					"\"/Users/blender/Documents/iPhone Dev/InterDeviceCom/InterDeviceCom\"",
 				);
 				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Spinch/libMSSCommunicationController\"",
-					"\"$(SRCROOT)/Spinch/libMSSCommunication\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Spinch-aenuylwhzuozoicdaumsfplsrxlm/Build/Products/Debug-iphoneos\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

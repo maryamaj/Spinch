@@ -12,6 +12,8 @@
 #import "iPadViewController.h"
 #import "SpinchDevice.h"
 #import "SpinchModel.h"
+#import "MSSCommunicationController.h"
+#import "InterDeviceCom.h"
 
 @implementation AppDelegate
 
@@ -41,10 +43,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
+    InterDeviceComController* devComController = [InterDeviceComController sharedController];
+    
+    devComController.delegate = [SpinchModel sharedModel];
+    
     [[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
     
     _sharedSurfaceComController = [MSSCommunicationController sharedController];
-    [_sharedSurfaceComController connectToHost:@"129.16.213.195" onPort:4568];
+    [_sharedSurfaceComController connectToHost:@"129.16.194.142" onPort:4568];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
@@ -57,15 +63,14 @@
         
         self.iPadViewController = [[[iPadViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
         self.window.rootViewController = self.iPadViewController;
-        //_sharedSurfaceComController.delegate = self.iPadViewController;
+        _sharedSurfaceComController.delegate = self.iPadViewController;
         self.device = [SpinchDevice sharedDevice];
     }
     
 
-    
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(getContacsFromCodeine) userInfo:nil repeats:YES]; 
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(getContacsFromCodeine) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(getDevicesFromCodeine) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.2 target:[SpinchModel sharedModel] selector:@selector(transmitToCanvasDevice) userInfo:nil repeats:YES];
     
     [self.window makeKeyAndVisible];
     return YES;

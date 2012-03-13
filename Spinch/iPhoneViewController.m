@@ -55,7 +55,8 @@
     
     SpinchDevice* device = [SpinchDevice sharedDevice]; 
     device.ipAddress = [MSSCommunicationController deviceIp];
-    device.contactDescriptor = (MSSCContactDescriptor *)[contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x06]];
+    MSSCContactDescriptor *desc = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x06]];
+    device.contactDescriptor = desc;
     if (device.contactDescriptor) {
         
         device.isOnTable = YES;
@@ -100,6 +101,23 @@
     
     }
     
+}
+
+-(void) newIPs:(NSDictionary *)ipDictionary {
+
+    SpinchDevice* device = [SpinchDevice sharedDevice];
+    NSNumber* key = [NSNumber numberWithUnsignedChar:device.canvasDescriptor.byteValue];
+    DeviceInformation* canvasDevice = [ipDictionary objectForKey:key];
+    
+    if(canvasDevice != nil && canvasDevice.ipStrLength > 0){
+    
+        SpinchDevice* device = [SpinchDevice sharedDevice];
+        device.canvasDevice = canvasDevice;
+        
+    }
+    
+
+
 }
 
 - (void)viewDidUnload
@@ -168,7 +186,7 @@
     
     if(rotateTimes % 2 == 1){
         
-        [self forwardMessageOfType:kMessageTypeRotation intValue:-1 floatValue:rotation];
+        [SpinchModel sharedModel].toolAlpha = rotation;
         
     }
     
@@ -199,7 +217,7 @@
     
     if(pinchTimes % 2 == 1){
     
-        [self forwardMessageOfType:kMessageTypePinch intValue:-1 floatValue:scale];
+        [SpinchModel sharedModel].toolWith = scale;
     
     }
     
@@ -213,54 +231,5 @@
 
     return YES;
 }
-
-#pragma mark - Network Stuff
-
--(IBAction) searchForDevice:(id)sender{
-    
-    
-    _sharedClientController = [ClientController sharedClientController];
-    _delegate = _sharedClientController;
-    _sharedClientController.delegate = self;
-    
-    [[ClientController  sharedClientController] search];
-    
-}
-
-- (IBAction) connectToDevice:(id)sender{
-    
-    NSMutableArray * services = [[ClientController sharedClientController] services];
-    
-    if([services count] > 0){
-        
-        
-        [[ClientController sharedClientController] connectToService:[services objectAtIndex:0]];
-        
-    }
-    else{
-        
-        _connectButton.enabled = NO;
-    }
-    
-}
-
-- (void) didFindService:(NSNetService *)aService{
-    
-    _connectButton.enabled = YES;
-    [_connectButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-}
-
-
-- (void) forwardMessageOfType:(int)messageType intValue:(int)intValue floatValue:(float)floatValue {
-    
-    if(_delegate && [_delegate respondsToSelector:@selector(willSendMessageOfType: withIntValue: floatValue:)]){
-        
-        [_delegate willSendMessageOfType:messageType withIntValue:intValue floatValue:floatValue];
-        
-    }
-    
-    
-}
-
 
 @end

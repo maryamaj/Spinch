@@ -41,12 +41,82 @@
         self.colorHue = 1.0f;
         self.colorBrightness = 1.0f;
         self.isColorMixerDisplayed = NO;
-        self.isColorMixerDisplayed = NO;
+        self.isToolControllerDisplayed = NO;
     }
     
     return self;
 }
 
+#pragma mark -
+#pragma mark Scheduled Method for Network Communicaiton 
+
+-(void) transmitToCanvasDevice{
+
+    DeviceInformation * canvasDev = ((SpinchDevice *)[SpinchDevice sharedDevice]).canvasDevice;
+    if(canvasDev != nil){
+    
+        InterDeviceComController* comController = [InterDeviceComController sharedController];
+        [comController connectToDevice:canvasDev onPort:kIDCPORT];
+        [comController sendData:[NSKeyedArchiver archivedDataWithRootObject:self] toDevice:canvasDev]; 
+    }
+
+}
+
+#pragma mark -
+#pragma mark InterDeviceComProtocol
+
+-(void) receivedData:(NSData *)data fromHost:(NSString *)host{
+    
+    
+    SpinchModel* model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    self.toolWith = model.toolWith;
+    self.toolAlpha = model.toolAlpha;
+    self.colorSaturation = model.colorSaturation;
+    self.colorHue = model.colorHue;
+    self.colorBrightness = model.colorBrightness;
+    self.isColorMixerDisplayed = model.isColorMixerDisplayed;
+    self.isToolControllerDisplayed = model.isToolControllerDisplayed;
+}
+
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (id) initWithCoder:(NSCoder *)aDecoder 
+{
+    
+    if((self = [super init])){
+        
+        toolWith = [aDecoder decodeInt32ForKey:@"toolWith"];
+        toolWith = toolWith / 100.0f;
+        toolAlpha = [aDecoder decodeInt32ForKey:@"toolAlpha"];
+        toolAlpha = toolWith / 100.0f;
+        colorSaturation = [aDecoder decodeInt32ForKey:@"colorSaturation"];
+        colorSaturation = colorSaturation / 100.0f;
+        colorHue = [aDecoder decodeInt32ForKey:@"colorHue"];
+        colorHue = colorHue / 100.0f;
+        colorBrightness = [aDecoder decodeInt32ForKey:@"colorBrightness"];
+        colorBrightness = colorBrightness / 100.0f;
+        isColorMixerDisplayed = [aDecoder decodeBoolForKey:@"isColorMixerDisplayed"];
+        isToolControllerDisplayed = [aDecoder decodeBoolForKey:@"isColorMixerDisplayed"];
+    }
+    
+    return self;
+}
+
+- (void) encodeWithCoder:(NSCoder*)encoder 
+{
+    
+    [encoder encodeInt32:toolWith*100 forKey:@"toolWith"];
+    [encoder encodeInt32:toolAlpha*100 forKey:@"toolAlpha"];
+    [encoder encodeInt32:colorSaturation*100 forKey:@"colorSaturation"];
+    [encoder encodeInt32:colorHue*100 forKey:@"colorHue"];
+    [encoder encodeInt32:colorBrightness*100 forKey:@"colorBrightness"];
+    [encoder encodeBool:isColorMixerDisplayed forKey:@"isColorMixerDisplayed"];
+    [encoder encodeBool:isToolControllerDisplayed forKey:@"isToolControllerDisplayed"];
+    
+}
 
 #pragma mark -
 #pragma mark KVO
@@ -57,7 +127,7 @@
     if([keyPath isEqualToString:@"contactDescriptor"]){
         
         MSSCContactDescriptor* desc = [change objectForKey:NSKeyValueChangeNewKey];
-        if(desc != nil){
+        if(desc !=(MSSCContactDescriptor*) [NSNull null]){
         
             self.colorSaturation = 1.0f - desc.orientation/360.0f;
         }else{

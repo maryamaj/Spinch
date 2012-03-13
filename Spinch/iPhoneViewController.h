@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ClientController.h"
-#import "ClientControllerProtocolDelegate.h"
 #import "SpinchConfig.h"
 #import "MSSCContactDescriptor.h"
 #import "MSSCommunicationController.h"
@@ -16,7 +14,7 @@
 #import "SpinchDevice.h"
 #import "SpinchModel.h"
 
-@interface iPhoneViewController : UIViewController <UIGestureRecognizerDelegate, ClientControllerProtocolDelegate, MSSCommunicationProtocol>
+@interface iPhoneViewController : UIViewController <UIGestureRecognizerDelegate, MSSCommunicationProtocol>
 {
     IBOutlet UIImageView *imageView;
     UIRotationGestureRecognizer *rotationGestureRecognizer;
@@ -26,9 +24,6 @@
     
     int pinchTimes;
     int rotateTimes;
-        
-    ClientController *_sharedClientController;
-    id<SpinchActionPassingProtocolDelegate> _delegate;
     
     ColorMixerViewController* _colorMixerController;
     
@@ -38,10 +33,6 @@
 
 -(IBAction) handleRotateGesture:(UIRotationGestureRecognizer *) recognizer;
 -(IBAction) handlePinchGesture:(UIPinchGestureRecognizer *) recognizer;
--(IBAction) searchForDevice:(id)sender;
--(IBAction) connectToDevice:(id)sender;
-
--(void) forwardMessageOfType:(int)messageType intValue:(int) intValue floatValue:(float) floatValue;
     
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIButton *connectButton;

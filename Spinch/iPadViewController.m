@@ -16,20 +16,8 @@
     
     [super viewDidLoad];
 	mouseMoved = 0;
-    lineWidth = 10.0f;
-    alphaValue = 1.0f;
-    lastScaleValue = 1.0f;
+    model = [SpinchModel sharedModel];
     
-    _sharedServerController = [ServerController sharedServerController];
-    [_sharedServerController startService];
-    
-    _sharedServerController.delegate = self;
-    
-    //[_sharedSurfaceComController connectToHost:@"129.16.202.46" onPort:4568];
-    //_sharedSurfaceComController.delegate = self;
-    
-    
-    //[NSTimer scheduledTimerWithTimeInterval:0.5 target:(_sharedSurfaceComController) selector:@selector(handshake) userInfo:nil repeats:YES]; 
 }
 
 -(void) newContacs:(NSDictionary *)contacDictionary{
@@ -65,8 +53,11 @@
 	//Albert Renshaw - Apps4Life
 	[drawImage.image drawInRect:CGRectMake(0, 0, drawImage.frame.size.width, drawImage.frame.size.height)]; //originally self.frame.size.width, self.frame.size.height)];
 	CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound); //kCGLineCapSquare, kCGLineCapButt, kCGLineCapRound
-	CGContextSetLineWidth(UIGraphicsGetCurrentContext(), lineWidth); // for size
-	CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 0.0, 0.0, alphaValue); //values for R, G, B, and Alpha
+	CGContextSetLineWidth(UIGraphicsGetCurrentContext(), model.toolWith); // for size
+	
+    UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:model.colorSaturation brightness:model.colorBrightness alpha:model.toolAlpha];
+    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), strokeColor.CGColor);
+    
 	CGContextBeginPath(UIGraphicsGetCurrentContext());
 	CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
 	CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
@@ -97,9 +88,12 @@
 		UIGraphicsBeginImageContext(self.view.frame.size);
 		[drawImage.image drawInRect:CGRectMake(0, 0, drawImage.frame.size.width, drawImage.frame.size.height)]; //originally self.frame.size.width, self.frame.size.height)];
 		CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound); //kCGLineCapSquare, kCGLineCapButt, kCGLineCapRound
-		CGContextSetLineWidth(UIGraphicsGetCurrentContext(), lineWidth);
-		CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 0.0, 0.0, alphaValue);
-		CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+		CGContextSetLineWidth(UIGraphicsGetCurrentContext(), model.toolWith);
+        
+        UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:model.colorSaturation brightness:model.colorBrightness alpha:model.toolAlpha];
+        CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), strokeColor.CGColor);
+		
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
 		CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
 		CGContextStrokePath(UIGraphicsGetCurrentContext());
 		CGContextFlush(UIGraphicsGetCurrentContext());
@@ -124,33 +118,5 @@
 - (void)dealloc {
     [super dealloc];
 }
-
-#pragma mark - ActionPassing Delegate Methods
-
--(void) didReceiveMessageOfType:(int)messageType withIntValue:(int)intValue floatValue:(float)floatValue
-{
-    
-    switch (messageType) {
-            
-        case kMessageTypePinch:
-            lineWidth *=floatValue;
-            if(lineWidth < 10.0f) lineWidth = 10.0f;
-            lastScaleValue = floatValue;
-            
-            break;
-            
-        case kMessageTypeRotation:
-            alphaValue += floatValue;
-            if(alphaValue > 1.0f) alphaValue = 1.0f;
-            if(alphaValue < 0.0f) alphaValue = 0.0f;
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-}
-
 
 @end

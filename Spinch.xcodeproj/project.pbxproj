@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C9AE0C41511FB8F00962495 /* libInterDeviceCom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C75BD431511F6E20049D061 /* libInterDeviceCom.a */; };
+		5C9AE0C51511FB8F00962495 /* libMSSCommunicationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFE0884150806160020D6B5 /* libMSSCommunicationController.a */; };
 		8A19B6BC1431E86200B1210F /* iPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19B6BB1431E86200B1210F /* iPadViewController.m */; };
 		8A19B6C31431EAAC00B1210F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A19B6C21431EAAC00B1210F /* CFNetwork.framework */; };
 		8A54050F150658EF00C0D32D /* ColorTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A54050E150658EF00C0D32D /* ColorTileView.m */; };
 		8A8D5B2F150503550073D864 /* ColorMixerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D5B2D150503550073D864 /* ColorMixerViewController.m */; };
 		8A8D5B30150503550073D864 /* ColorMixerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D5B2E150503550073D864 /* ColorMixerViewController.xib */; };
-		8A920706150F973200325798 /* libInterDeviceCom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9206F1150F5C3800325798 /* libInterDeviceCom.a */; };
-		8A920707150F974A00325798 /* libMSSCommunicationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFE0884150806160020D6B5 /* libMSSCommunicationController.a */; };
 		8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29B1430987200CE7900 /* UIKit.framework */; };
 		8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29D1430987200CE7900 /* Foundation.framework */; };
 		8ACBF2A01430987200CE7900 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBF29F1430987200CE7900 /* CoreGraphics.framework */; };
@@ -29,11 +29,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A9206F0150F5C3800325798 /* PBXContainerItemProxy */ = {
+		5C75BD421511F6E20049D061 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
+			containerPortal = 5C75BD311511F6D20049D061 /* InterDeviceCom.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8AB2DDA9150E5D75007129DC;
+			remoteInfo = InterDeviceCom;
+		};
+		5C9AE0C21511FAC600962495 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C75BD311511F6D20049D061 /* InterDeviceCom.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AB2DDA8150E5D75007129DC;
 			remoteInfo = InterDeviceCom;
 		};
 		8A920708150F975B00325798 /* PBXContainerItemProxy */ = {
@@ -42,13 +49,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8A2593E914F6811800A3D43A;
 			remoteInfo = MSSCommunicationController;
-		};
-		8A92070A150F976400325798 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AB2DDA8150E5D75007129DC;
-			remoteInfo = InterDeviceCom;
 		};
 		8AFE0881150806160020D6B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C75BD311511F6D20049D061 /* InterDeviceCom.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InterDeviceCom.xcodeproj; path = ../../libInterDeviceCom/InterDeviceCom.xcodeproj; sourceTree = "<group>"; };
 		8A19B6BA1431E86200B1210F /* iPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadViewController.h; sourceTree = "<group>"; };
 		8A19B6BB1431E86200B1210F /* iPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadViewController.m; sourceTree = "<group>"; };
 		8A19B6C21431EAAC00B1210F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -77,7 +78,6 @@
 		8A8D5B2D150503550073D864 /* ColorMixerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorMixerViewController.m; sourceTree = "<group>"; };
 		8A8D5B2E150503550073D864 /* ColorMixerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorMixerViewController.xib; sourceTree = "<group>"; };
 		8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pieMenu.xcodeproj; path = ../../pieMenu/pieMenu.xcodeproj; sourceTree = "<group>"; };
-		8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InterDeviceCom.xcodeproj; path = ../../InterDeviceCom/InterDeviceCom.xcodeproj; sourceTree = "<group>"; };
 		8ACBF2971430987200CE7900 /* Spinch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACBF29B1430987200CE7900 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8ACBF29D1430987200CE7900 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,8 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A920707150F974A00325798 /* libMSSCommunicationController.a in Frameworks */,
-				8A920706150F973200325798 /* libInterDeviceCom.a in Frameworks */,
+				5C9AE0C41511FB8F00962495 /* libInterDeviceCom.a in Frameworks */,
+				5C9AE0C51511FB8F00962495 /* libMSSCommunicationController.a in Frameworks */,
 				8A19B6C31431EAAC00B1210F /* CFNetwork.framework in Frameworks */,
 				8ACBF29C1430987200CE7900 /* UIKit.framework in Frameworks */,
 				8ACBF29E1430987200CE7900 /* Foundation.framework in Frameworks */,
@@ -116,10 +116,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A9206E9150F5C3800325798 /* Products */ = {
+		5C75BD3F1511F6E20049D061 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A9206F1150F5C3800325798 /* libInterDeviceCom.a */,
+				5C75BD431511F6E20049D061 /* libInterDeviceCom.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 		8ACBF2A11430987200CE7900 /* Spinch */ = {
 			isa = PBXGroup;
 			children = (
-				8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */,
+				5C75BD311511F6D20049D061 /* InterDeviceCom.xcodeproj */,
 				8A8D5B6115050D420073D864 /* pieMenu.xcodeproj */,
 				8ACBF2BF14309EB200CE7900 /* Assets */,
 				8A19B6C8143201B200B1210F /* SpinchConfig.h */,
@@ -223,7 +223,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A92070B150F976400325798 /* PBXTargetDependency */,
+				5C9AE0C31511FAC600962495 /* PBXTargetDependency */,
 				8A920709150F975B00325798 /* PBXTargetDependency */,
 			);
 			name = Spinch;
@@ -252,8 +252,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8A9206E9150F5C3800325798 /* Products */;
-					ProjectRef = 8A9206E8150F5C3800325798 /* InterDeviceCom.xcodeproj */;
+					ProductGroup = 5C75BD3F1511F6E20049D061 /* Products */;
+					ProjectRef = 5C75BD311511F6D20049D061 /* InterDeviceCom.xcodeproj */;
 				},
 				{
 					ProductGroup = 8AFE087D150806160020D6B5 /* Products */;
@@ -268,11 +268,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8A9206F1150F5C3800325798 /* libInterDeviceCom.a */ = {
+		5C75BD431511F6E20049D061 /* libInterDeviceCom.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libInterDeviceCom.a;
-			remoteRef = 8A9206F0150F5C3800325798 /* PBXContainerItemProxy */;
+			remoteRef = 5C75BD421511F6E20049D061 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8AFE0882150806160020D6B5 /* pieMenu.app */ = {
@@ -325,15 +325,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C9AE0C31511FAC600962495 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = InterDeviceCom;
+			targetProxy = 5C9AE0C21511FAC600962495 /* PBXContainerItemProxy */;
+		};
 		8A920709150F975B00325798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MSSCommunicationController;
 			targetProxy = 8A920708150F975B00325798 /* PBXContainerItemProxy */;
-		};
-		8A92070B150F976400325798 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = InterDeviceCom;
-			targetProxy = 8A92070A150F976400325798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -417,8 +417,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"/Users/blender/Documents/iPhone Dev/pieMenu/MSSCommunicationController\"",
-					"\"/Users/blender/Documents/iPhone Dev/InterDeviceCom/InterDeviceCom\"",
+					/Users/maryam/documents/libInterDeviceCom/InterDeviceCom,
+					/Users/maryam/Documents/pieMenu/MSSCommunicationController,
 				);
 				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -438,8 +438,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Spinch/Spinch-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"/Users/blender/Documents/iPhone Dev/pieMenu/MSSCommunicationController\"",
-					"\"/Users/blender/Documents/iPhone Dev/InterDeviceCom/InterDeviceCom\"",
+					/Users/maryam/documents/libInterDeviceCom/InterDeviceCom,
+					/Users/maryam/Documents/pieMenu/MSSCommunicationController,
 				);
 				INFOPLIST_FILE = "Spinch/Spinch-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

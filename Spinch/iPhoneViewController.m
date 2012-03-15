@@ -71,7 +71,7 @@
         
             float angle = [MSSCContactDescriptor orientationOfDescriptor:device.contactDescriptor relativeToDescriptor:canvas];
             
-            if( angle > 40.0f && angle  < 140.0f){
+            if( angle > 20.0f && angle  < 140.0f){
                 
                 if(![SpinchModel sharedModel].isColorMixerDisplayed){
                 
@@ -85,7 +85,7 @@
             }
             
             
-            if( angle < 40.0f || angle > 140.0f ){
+            if( angle < 20.0f || angle > 140.0f ){
                 
                 if(![SpinchModel sharedModel].isToolControllerDisplayed){
                     [self dismissViewControllerAnimated:YES completion:nil];

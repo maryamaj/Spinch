@@ -20,6 +20,8 @@
 @property (nonatomic, assign) float colorBrightness;
 @property (nonatomic, assign) BOOL isColorMixerDisplayed;
 @property (nonatomic, assign) BOOL isToolControllerDisplayed;
+//not serialized
+@property (nonatomic, assign) float localHue;
 
 +(SpinchModel *) sharedModel;
 -(void) transmitToCanvasDevice;

@@ -47,12 +47,12 @@
     
     devComController.delegate = [SpinchModel sharedModel];
     
-    [[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
-    
     _sharedSurfaceComController = [MSSCommunicationController sharedController];
     [_sharedSurfaceComController connectToHost:@"169.254.59.237" onPort:4568];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        
+        //[[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
         
         self.iPhoneViewController = [[[iPhoneViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
         self.window.rootViewController = self.iPhoneViewController;

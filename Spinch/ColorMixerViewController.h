@@ -13,9 +13,11 @@
 @interface ColorMixerViewController : UIViewController
 {
     NSMutableArray* _selectedTiles;
+    float _hueOffSet;
 }
 
-@property (nonatomic, retain) NSMutableArray* selectedTiles;
+@property (nonatomic, strong) NSMutableArray* selectedTiles;
+@property (nonatomic, assign) float hueOffSet;
 
 -(int) tileIdFromLocation:(CGPoint) locationInView;
 

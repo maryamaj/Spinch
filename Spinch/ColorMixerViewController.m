@@ -6,20 +6,35 @@
 //  Copyright (c) 2012 ChalmersTH. All rights reserved.
 //
 
-#define MAX_TILES 35
+#define MAX_TILES 12
+#define MAX_TILE_SIZE 100
 
 #import "ColorMixerViewController.h"
 
 @implementation ColorMixerViewController
 
 @synthesize selectedTiles = _selectedTiles;
+@synthesize hueOffSet = _hueOffSet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.selectedTiles = [NSMutableArray arrayWithCapacity:5];
+        self.selectedTiles = [NSMutableArray arrayWithCapacity:MAX_TILES];
+        _hueOffSet = 0.0f;
     }
+    return self;
+}
+
+-(id) init {
+    self = [super init];
+    if(self){
+    
+        self.selectedTiles = [NSMutableArray arrayWithCapacity:MAX_TILES];
+        _hueOffSet = 0.0f;
+    
+    }
+    
     return self;
 }
 
@@ -40,11 +55,13 @@
     
     for (int i = 0; i < MAX_TILES; i++) {
         
-        float saturation = [SpinchModel sharedModel].colorSaturation;
-        float brightness = [SpinchModel sharedModel].colorBrightness;
+        float saturation = 1.0;//[SpinchModel sharedModel].colorSaturation;
+        float brightness = 1.0;//[SpinchModel sharedModel].colorBrightness;
         
-        ColorTileView *ct = [ColorTileView tileWithFrame:CGRectMake(10+((i*60)%300), 30+((i*60)/300)*60, 60, 60) andColor:[UIColor colorWithHue:i*1.0/35.0 saturation:saturation brightness:brightness alpha:1.0]];
-        ct.tag = i;
+        CGRect frame = CGRectMake(10+((i*MAX_TILE_SIZE)%300), 30+((i*MAX_TILE_SIZE)/300)*MAX_TILE_SIZE, MAX_TILE_SIZE, MAX_TILE_SIZE);
+        
+        ColorTileView *ct = [ColorTileView tileWithFrame:frame andColor:[UIColor colorWithHue:(i*(1.0/(MAX_TILES*2)))+_hueOffSet saturation:saturation brightness:brightness alpha:1.0]];
+        ct.tag = i+1;
         [self.view addSubview:ct ];
         [[SpinchModel sharedModel] addObserver:ct forKeyPath:@"colorSaturation" options:NSKeyValueObservingOptionNew context:nil];
         [[SpinchModel sharedModel] addObserver:ct forKeyPath:@"colorBrightness" options:NSKeyValueObservingOptionNew context:nil];
@@ -114,13 +131,16 @@
     CGPoint locationInView = [(NSValue *) [touches objectForKey:@"location"] CGPointValue];
     
     int tile = [self tileIdFromLocation:locationInView];
-    if(tile >= 0){
+    if(tile >= 0 && tile <MAX_TILES){
         
-        ColorTileView* aTile = (ColorTileView*)[self.view viewWithTag:tile];
-        [SpinchModel sharedModel].colorHue = tile*1.0/35.0;
+        ColorTileView* aTile = (ColorTileView*)[self.view viewWithTag:tile+1];
+        [SpinchModel sharedModel].colorHue = (tile*(1.0/(MAX_TILES*2)))+_hueOffSet;
+        [SpinchModel sharedModel].localHue = (tile*(1.0/(MAX_TILES*2)))+_hueOffSet;
         aTile.isSelected  = YES;
         [aTile setNeedsDisplay];
-        [_selectedTiles addObject:aTile];
+        if(self.selectedTiles != nil){
+            [self.selectedTiles addObject:aTile];
+        }
     }
 
 }
@@ -135,14 +155,14 @@
 
 -(int) tileIdFromLocation:(CGPoint) locationInView {
 
-    if(locationInView.x >= 10 && locationInView.x <= 300 && locationInView.y >= 30 && locationInView.y <=450){
+    if(locationInView.x >= 10 && locationInView.x < 300 && locationInView.y >= 30 && locationInView.y <420){
     
     
-        int row = locationInView.y / 60;
-        int column = locationInView.x / 60;
+        int row = locationInView.y / MAX_TILE_SIZE;
+        int column = locationInView.x / MAX_TILE_SIZE;
         
         
-        return row*5+column;
+        return row*(300.0f/MAX_TILE_SIZE)+column;
     }
 
     return -1;

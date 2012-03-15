@@ -17,6 +17,8 @@
 @synthesize colorSaturation;
 @synthesize isColorMixerDisplayed;
 @synthesize isToolControllerDisplayed;
+//not serialized
+@synthesize localHue;
 
 
 + (SpinchModel *) sharedModel
@@ -126,6 +128,10 @@
         self.colorBrightness = 1.0f;
         self.isColorMixerDisplayed = NO;
         self.isToolControllerDisplayed = NO;
+        
+        //not serialized
+        self.localHue = 1.0;
+        
     }
     
     return self;
@@ -159,7 +165,7 @@
     self.colorBrightness = model.colorBrightness;
     self.isColorMixerDisplayed = model.isColorMixerDisplayed;
     self.isToolControllerDisplayed = model.isToolControllerDisplayed;
-
+    self.localHue = model.localHue;
 }
 
 

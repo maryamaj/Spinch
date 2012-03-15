@@ -11,7 +11,6 @@
 @interface ColorTileView : UIView
 {
     BOOL _isSelected;
-
 }
 
 @property (nonatomic, assign) BOOL isSelected;

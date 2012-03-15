@@ -55,22 +55,23 @@
     
     SpinchDevice* device = [SpinchDevice sharedDevice]; 
     device.ipAddress = [MSSCommunicationController deviceIp];
-    MSSCContactDescriptor *desc = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x06]];
+    MSSCContactDescriptor *desc = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:iPhoneID]];
     device.contactDescriptor = desc;
     if (device.contactDescriptor) {
         
         device.isOnTable = YES;
+        [[MSSCommunicationController sharedController] setDeviceToCodeine:[DeviceInformation deviceInfoWithCDByteValue:device.contactDescriptor.byteValue andIp:device.ipAddress]];
         
-        MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:0x00]];
+        MSSCContactDescriptor* canvas = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:iPadID]];
         
         if(canvas){
                     
-            ((SpinchDevice *)[SpinchDevice sharedDevice]).canvasDescriptor = canvas;
-            [[MSSCommunicationController sharedController] setDeviceToCodeine:[DeviceInformation deviceInfoWithCDByteValue:device.contactDescriptor.byteValue andIp:device.ipAddress]];
+            ((SpinchDevice *)[SpinchDevice sharedDevice]).otherDeviceDescriptor = canvas;
+           
         
             float angle = [MSSCContactDescriptor orientationOfDescriptor:device.contactDescriptor relativeToDescriptor:canvas];
             
-            if( angle > 90.0f && angle  < 270.0f){
+            if( angle > 40.0f && angle  < 140.0f){
                 
                 if(![SpinchModel sharedModel].isColorMixerDisplayed){
                 
@@ -84,7 +85,7 @@
             }
             
             
-            if( angle < 90.0f || angle > 270.f ){
+            if( angle < 40.0f || angle > 140.0f ){
                 
                 if(![SpinchModel sharedModel].isToolControllerDisplayed){
                     [self dismissViewControllerAnimated:YES completion:nil];
@@ -106,13 +107,13 @@
 -(void) newIPs:(NSDictionary *)ipDictionary {
 
     SpinchDevice* device = [SpinchDevice sharedDevice];
-    NSNumber* key = [NSNumber numberWithUnsignedChar:device.canvasDescriptor.byteValue];
+    NSNumber* key = [NSNumber numberWithUnsignedChar:device.otherDeviceDescriptor.byteValue];
     DeviceInformation* canvasDevice = [ipDictionary objectForKey:key];
     
     if(canvasDevice != nil && canvasDevice.ipStrLength > 0){
     
         SpinchDevice* device = [SpinchDevice sharedDevice];
-        device.canvasDevice = canvasDevice;
+        device.otherDevice = canvasDevice;
         
     }
     
@@ -162,6 +163,7 @@
     [rotationGestureRecognizer release];
     [pinchGestureRecognizer release];
     self.colorMixerController = nil;
+    [super dealloc];
 
 }
 
@@ -179,32 +181,34 @@
     }
     
     
-    CGFloat rotation = [recognizer rotation] - lastRotation;
-    imageView.transform = CGAffineTransformRotate(imageView.transform, rotation);
+    /*
     NSLog(@"current rotation:%f\t last rotation:%f\t angle of rotation:%f", [recognizer rotation], lastRotation, rotation);
     lastRotation = [recognizer rotation];
     
     if(rotateTimes % 2 == 1){
         
-        [SpinchModel sharedModel].toolAlpha = rotation;
+        [SpinchModel sharedModel].toolAlpha = 1* rotation;
         
     }
     
     rotateTimes++;
     if(rotateTimes > 1) rotateTimes = 0;
+     
+     */
+    
+    CGFloat imgRotation = [recognizer rotation] - lastRotation;
+    imageView.transform = CGAffineTransformRotate(imageView.transform, imgRotation);
+    lastRotation = [recognizer rotation];
+    NSLog(@"Rotation: %f", [recognizer rotation]);
+    [SpinchModel sharedModel].toolAlpha = 1* [recognizer rotation];
 
 }
 
 -(IBAction) handlePinchGesture:(UIPinchGestureRecognizer *) recognizer
 {
 
-    if([recognizer state] == UIGestureRecognizerStateEnded) {
-        
-		lastScale = 1.0;
-		return;
-	}
-    
-	CGFloat scale = 1.0 - (lastScale - [recognizer scale]);
+    /*
+
     
 	CGAffineTransform currentTransform = imageView.transform;
 	CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
@@ -223,7 +227,32 @@
     
     pinchTimes++;
     if(pinchTimes > 1) pinchTimes = 0;
-
+     */
+    
+    if([recognizer state] == UIGestureRecognizerStateEnded) {
+        
+		lastScale = 1.0;
+		return;
+	}
+    
+	CGFloat scale = 1.0 - (lastScale - [recognizer scale]);
+    CGAffineTransform currentTransform = imageView.transform;
+	CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
+    imageView.transform =newTransform;
+    
+    int toolscale = 0;
+    float increment = (lastScale - [recognizer scale]);
+    
+    increment = fabs(increment);
+    NSLog(@"Increment %f, 10%% %f", increment, lastScale*0.01);
+    if(increment > lastScale*0.01){
+        if(lastScale > 0)
+            toolscale = 5;
+        else
+            toolscale = -5;
+    }
+    lastScale = [recognizer scale];
+    [SpinchModel sharedModel].toolWith = 50*[recognizer scale];
 }
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

@@ -15,14 +15,14 @@
     BOOL _isOnTable;
     MSSCContactDescriptor* _contactDescriptor;
     NSString* _ipAddress;
-    MSSCContactDescriptor* _canvasDescriptor;
-    DeviceInformation* _canvasDevice;
+    MSSCContactDescriptor* _otherDeviceDescriptor;
+    DeviceInformation* _otherDevice;
 }
 
 @property (nonatomic, assign) BOOL isOnTable;
 @property (nonatomic, retain) MSSCContactDescriptor* contactDescriptor;
-@property (nonatomic, retain) MSSCContactDescriptor* canvasDescriptor;
-@property (nonatomic, copy) DeviceInformation* canvasDevice;
+@property (nonatomic, retain) MSSCContactDescriptor* otherDeviceDescriptor;
+@property (nonatomic, strong) DeviceInformation* otherDevice;
 @property (nonatomic, retain) NSString* ipAddress;
 
 + (id) sharedDevice;

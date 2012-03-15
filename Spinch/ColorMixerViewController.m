@@ -117,7 +117,7 @@
     if(tile >= 0){
         
         ColorTileView* aTile = (ColorTileView*)[self.view viewWithTag:tile];
-        
+        [SpinchModel sharedModel].colorHue = tile*1.0/35.0;
         aTile.isSelected  = YES;
         [aTile setNeedsDisplay];
         [_selectedTiles addObject:aTile];

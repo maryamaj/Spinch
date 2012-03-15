@@ -22,10 +22,24 @@
 
 -(void) newContacs:(NSDictionary *)contacDictionary{
     
-    
-    
-    
+    SpinchDevice* device = [SpinchDevice sharedDevice]; 
+    device.ipAddress = [MSSCommunicationController deviceIp];
+    MSSCContactDescriptor *desc = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:iPadID]];
+    device.contactDescriptor = desc;
+
+    if (device.contactDescriptor) {
+        
+        device.isOnTable = YES;
+        [[MSSCommunicationController sharedController] setDeviceToCodeine:[DeviceInformation deviceInfoWithCDByteValue:device.contactDescriptor.byteValue andIp:device.ipAddress]];
+        
+        MSSCContactDescriptor* satelliteDevice = [contacDictionary objectForKey:[NSNumber numberWithUnsignedChar:iPhoneID]];
+        
+        if(satelliteDevice){
+        
+        }
+    }
 }
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
@@ -55,7 +69,7 @@
 	CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound); //kCGLineCapSquare, kCGLineCapButt, kCGLineCapRound
 	CGContextSetLineWidth(UIGraphicsGetCurrentContext(), model.toolWith); // for size
 	
-    UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:model.colorSaturation brightness:model.colorBrightness alpha:model.toolAlpha];
+    UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:1.0 brightness:model.colorBrightness alpha:model.toolAlpha];
     CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), strokeColor.CGColor);
     
 	CGContextBeginPath(UIGraphicsGetCurrentContext());
@@ -90,7 +104,7 @@
 		CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound); //kCGLineCapSquare, kCGLineCapButt, kCGLineCapRound
 		CGContextSetLineWidth(UIGraphicsGetCurrentContext(), model.toolWith);
         
-        UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:model.colorSaturation brightness:model.colorBrightness alpha:model.toolAlpha];
+        UIColor* strokeColor = [UIColor colorWithHue:model.colorHue saturation:1.0 brightness:model.colorBrightness alpha:model.toolAlpha];
         CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), strokeColor.CGColor);
 		
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);

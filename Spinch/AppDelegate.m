@@ -50,7 +50,7 @@
     [[SpinchDevice sharedDevice] addObserver:[SpinchModel sharedModel] forKeyPath:@"contactDescriptor" options:NSKeyValueObservingOptionNew context:nil];
     
     _sharedSurfaceComController = [MSSCommunicationController sharedController];
-    [_sharedSurfaceComController connectToHost:@"129.16.194.142" onPort:4568];
+    [_sharedSurfaceComController connectToHost:@"169.254.59.237" onPort:4568];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
@@ -65,6 +65,8 @@
         self.window.rootViewController = self.iPadViewController;
         _sharedSurfaceComController.delegate = self.iPadViewController;
         self.device = [SpinchDevice sharedDevice];
+        
+        [[InterDeviceComController sharedController] startServer];
     }
     
 

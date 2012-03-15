@@ -12,8 +12,8 @@
 
 @synthesize isOnTable = _isOnTable;
 @synthesize contactDescriptor = _contactDescriptor;
-@synthesize canvasDescriptor = _canvasDescriptor;
-@synthesize canvasDevice = _canvasDevice;
+@synthesize otherDeviceDescriptor = _otherDeviceDescriptor;
+@synthesize otherDevice = _canvasDevice;
 @synthesize ipAddress = _ipAddress;
 
 + (SpinchDevice *) sharedDevice
@@ -33,8 +33,8 @@
     if(self){
         self.isOnTable = NO;
         self.contactDescriptor = nil;
-        self.canvasDescriptor = nil;
-        self.canvasDevice = nil;
+        self.otherDeviceDescriptor = nil;
+        self.otherDevice = nil;
     }
     
     return self;

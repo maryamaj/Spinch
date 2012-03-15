@@ -16,4 +16,7 @@
 #define KMessageTypeError -1
 
 
+#define iPhoneID 0x06
+#define iPadID 0x00
+
 #endif
